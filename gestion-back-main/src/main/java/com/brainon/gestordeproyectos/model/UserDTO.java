@@ -12,13 +12,23 @@ public class UserDTO {
     @NotBlank
     private String email;
     private String pictureUrl;
+    private boolean admin;
 
-    public UserDTO(String id, String uid, String name, String email, String pictureUrl) {
+    public UserDTO(String id, String uid, String name, String email, String pictureUrl, boolean admin) {
         this.id = id;
         this.uid = uid;
         this.name = name;
         this.email = email;
         this.pictureUrl = pictureUrl;
+        this.admin = admin;
+    }
+
+    public boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public String getId() {

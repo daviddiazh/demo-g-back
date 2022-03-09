@@ -65,8 +65,8 @@ public class MapperUtils {
                 entity.getUid(),
                 entity.getName(),
                 entity.getEmail(),
-                entity.getPictureUrl()
-        );
+                entity.getPictureUrl(),
+                entity.getAdmin());
     }
 
     public Function<UserDTO, User> mapperToUser(String id) {
@@ -77,6 +77,7 @@ public class MapperUtils {
             user.setName(updateUser.getName());
             user.setEmail(updateUser.getEmail());
             user.setPictureUrl(updateUser.getPictureUrl());
+            user.setAdmin(updateUser.getAdmin());
             return user;
         };
     }

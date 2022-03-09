@@ -11,17 +11,27 @@ public class User {
     private String name;
     private String email;
     private String pictureUrl;
+    private boolean admin;
 
-    public User(String id, String uid, String name, String email, String pictureUrl) {
+    public User(String id, String uid, String name, String email, String pictureUrl, boolean admin) {
         this.id = id;
         this.uid = uid;
         this.name = name;
         this.email = email;
         this.pictureUrl = pictureUrl;
+        this.admin = admin;
     }
 
     public User() {
 
+    }
+
+    public boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public String getId() {

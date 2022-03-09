@@ -25,7 +25,7 @@ public class CreateUserUseCase implements SaveUser{
         return userRepository.findByUid(userDTO.getUid())
                 .flatMap(user -> {
                     return Mono.error(new ResponseStatusException(HttpStatus.CONFLICT));
-                }).switchIfEmpty(userRepository.save(mapperUtils.mapperToUser(null).apply(userDTO))).thenReturn("guardado");
+                }).switchIfEmpty(userRepository.save(mapperUtils.mapperToUser(null).apply(userDTO))).thenReturn("usuario guardado");
     }
 
 }
