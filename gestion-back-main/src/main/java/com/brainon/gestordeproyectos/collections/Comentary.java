@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Document
 public class Comentary {
@@ -12,7 +13,8 @@ public class Comentary {
     private String userId;
     private String projectId;
     private String comentary;
-    private LocalDate fechaCreacio;
+    //private LocalDate fechaCreacio;
+    private ArrayList<String> fechaCreacio;
 
     public String getId() {
         return id;
@@ -46,11 +48,11 @@ public class Comentary {
         this.comentary = comentary;
     }
 
-    public LocalDate getFechaCreacio() {
+    public ArrayList<String> getFechaCreacio() {
         return fechaCreacio;
     }
 
-    public void setFechaCreacio(LocalDate fechaCreacio) {
+    public void setFechaCreacio(ArrayList<String> fechaCreacio) {
         this.fechaCreacio = fechaCreacio;
     }
 }

@@ -55,7 +55,8 @@ public class MapperUtils {
                 entity.getId(),
                 entity.getProjectId(),
                 entity.getUserId(),
-                entity.getComentary()
+                entity.getComentary(),
+                entity.getFechaCreacio()
         );
     }
 

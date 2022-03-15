@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Objects;
@@ -74,6 +77,17 @@ public class AddComentaryUseCase implements SaveComentary{
 
     @Override
     public Mono<ComentaryDTO> saveComentary(ComentaryDTO comentaryDTO) {
+
+        LocalDateTime fechaYHora = LocalDateTime.now();
+        DateTimeFormatter isoHora = DateTimeFormatter.ISO_LOCAL_TIME;
+        String horaConvertida = fechaYHora.format(isoHora).toString();
+        String[] hora = horaConvertida.split("\\.");
+        DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
+        String fechaConvertida = fechaYHora.format(isoFecha).toString();
+        ArrayList<String> fechaHora = new ArrayList<String>();
+        fechaHora.add(fechaConvertida);
+        fechaHora.add(hora[0]);
+        comentaryDTO.setFechaCreacio(fechaHora);
 
         projectRepository.findById(comentaryDTO.getProjectId()).flatMap(project -> userRepository.findByUid(project.getUserId()).flatMap(user ->
                 sendMailService.sendMail(user.getEmail(),
