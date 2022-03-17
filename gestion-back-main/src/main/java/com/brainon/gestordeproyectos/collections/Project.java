@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Document
 public class Project {
@@ -16,7 +17,8 @@ public class Project {
     private State state;
     private Category category;
     private String descripcion;
-    private LocalDate fechaCreacio;
+    //private LocalDate fechaCreacio;
+    private ArrayList<String> fechaCreacio;
 
     public String getId() {
         return id;
@@ -58,11 +60,11 @@ public class Project {
         this.category = category;
     }
 
-    public LocalDate getFechaCreacio() {
+    public ArrayList<String> getFechaCreacio() {
         return fechaCreacio;
     }
 
-    public void setFechaCreacio(LocalDate fechaCreacio) {
+    public void setFechaCreacio(ArrayList<String> fechaCreacio) {
         this.fechaCreacio = fechaCreacio;
     }
 

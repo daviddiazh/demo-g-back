@@ -47,7 +47,8 @@ public class MapperUtils {
                 entity.getProject(),
                 entity.getState(),
                 entity.getCategory() ,
-                entity.getDescripcion());
+                entity.getDescripcion(),
+                entity.getFechaCreacio());
     }
 
     public Function<Comentary, ComentaryDTO> mapEntityToComentary() {

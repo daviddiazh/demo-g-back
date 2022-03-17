@@ -25,7 +25,8 @@ public class ProjectDTO {
     private List<ComentaryDTO> comentarys;
     private UserDTO userDTO;
     private String email;
-    private LocalDate fechaCreacion = LocalDate.now();
+    //private LocalDate fechaCreacion = LocalDate.now();
+    private ArrayList<String> fechaCreacio = new ArrayList<String>();
     @NotBlank
     private String descripcion;
 
@@ -33,26 +34,26 @@ public class ProjectDTO {
 
     }
 
-    public ProjectDTO(String userId, String project, State state, Category category) {
+    public ProjectDTO(String userId, String project, State state, Category category, ArrayList<String> fechaCreacio) {
         this.userId = userId;
         this.project = project;
         this.state=state;
         this.category=category;
-
+        this.fechaCreacio = fechaCreacio;
     }
 
-    public ProjectDTO(String id, String userId, String project, State state, Category category ,String descripcion) {
+    public ProjectDTO(String id, String userId, String project, State state, Category category ,String descripcion, ArrayList<String> fechaCreacio) {
         this.id = id;
         this.userId = userId;
         this.project = project;
         this.state = state;
         this.category = category;
         this.descripcion = descripcion;
-        this.fechaCreacion=LocalDate.now();
+        this.fechaCreacio = fechaCreacio;
     }
 
-    public LocalDate getFechaCreacion() {
-        return fechaCreacion;
+    public ArrayList<String> getFechaCreacion() {
+        return fechaCreacio;
     }
 
     public List<ComentaryDTO> getComentarys() {
@@ -72,8 +73,8 @@ public class ProjectDTO {
         this.email = email;
     }
 
-    public void setFechaCreacion(LocalDate fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setFechaCreacion(ArrayList<String> fechaCreacion) {
+        this.fechaCreacio = fechaCreacion;
     }
 
     public String getDescripcion() {
@@ -141,11 +142,11 @@ public class ProjectDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProjectDTO that = (ProjectDTO) o;
-        return Objects.equals(id, that.id) && Objects.equals(userId, that.userId) && Objects.equals(project, that.project) && state == that.state && category == that.category && Objects.equals(comentarys, that.comentarys) && Objects.equals(userDTO, that.userDTO) && Objects.equals(fechaCreacion, that.fechaCreacion) && Objects.equals(descripcion, that.descripcion);
+        return Objects.equals(id, that.id) && Objects.equals(userId, that.userId) && Objects.equals(project, that.project) && state == that.state && category == that.category && Objects.equals(comentarys, that.comentarys) && Objects.equals(userDTO, that.userDTO) && Objects.equals(fechaCreacio, that.fechaCreacio) && Objects.equals(descripcion, that.descripcion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, project, state, category, comentarys, userDTO, fechaCreacion, descripcion);
+        return Objects.hash(id, userId, project, state, category, comentarys, userDTO, fechaCreacio, descripcion);
     }
 }
